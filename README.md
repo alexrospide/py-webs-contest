@@ -19,7 +19,7 @@ Project developed in Python to do a Web Scrapping  to solve a daily routine for 
 
 
 # :mechanical_arm: How to
-* Python 3.12 instalado
+* Python 3.12 instaled
 * Under Development
 
 
