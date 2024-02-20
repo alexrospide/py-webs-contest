@@ -1,21 +1,19 @@
-import json
 import time
-import requests
 import pandas as pd
 from bs4 import BeautifulSoup
-import selenium
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.firefox.options import Options
 
 
 def do_the_scraping():
     # Pegar os dados da url
     url = 'https://www.pm.sc.gov.br/concursos/processos-seletivos-do-colegio-da-pmsc-cfnp?ConcursoSearch%5Bcriado_em%5D=&ConcursoSearch%5Bdescricao%5D=ACT&ConcursoSearch%5Bstatus%5D=1'
 
-    option = Options()
-    option.add_argument("--headless")
-    driver = webdriver.Firefox(options=option)
+    options = webdriver.ChromeOptions()
+
+    # option = Options()
+    options.add_argument("--headless")
+    driver = webdriver.Chrome(options=options)
 
     driver.get(url)
 
@@ -38,14 +36,15 @@ def do_the_scraping():
 
     lista_concurso = {'lista': df.to_dict('records')}
 
-    print('aqui é no web scrapping')
-    print(lista_concurso['lista'])
+    print('Scrapping Done!')
+    # print(lista_concurso['lista'])
 
-    # 4 - transformar os dados em um dicionário
-
+    # 4 - turn data into a dict
     # js = json.dumps(lista_concurso['lista'], ensure_ascii=False)
-    # print(js)
+
+    # close driver and display
     driver.quit()
+
     # with open('lista_concurso.json', 'w', encoding='utf-8') as concursos:
     #     concursos.write(js)
     return lista_concurso['lista']

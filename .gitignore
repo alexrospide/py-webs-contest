@@ -6,6 +6,8 @@ __pycache__/
 *.json
 
 password.py
+test.py
+config.py
 
 # C extensions
 *.so

@@ -5,12 +5,13 @@ import ssl
 from email.message import EmailMessage
 import datetime
 import password
+import config
 
 def do_send_email(lista_concursos):
     # Define email sender and receiver
-    email_sender = 'alexrospide@gmail.com'
+    email_sender = config.email_sender
     email_password = password.email_password
-    email_receiver = 'alecarneiro87@gmail.com'
+    email_receiver = config.email_receiver
 
     # Set the subject and body of the email
     hoje = datetime.datetime.today().strftime('%d/%m/%Y')
